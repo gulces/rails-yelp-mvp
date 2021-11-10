@@ -1,2 +1,41 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+
+<div class="container bg-warning mt-5 p-5 container d-flex justify-content-start">
+  <img src="https://source.unsplash.com/random" alt="" style="width: 100%; height: 60vh; object-fit: contain;">
+  <div class="d-flex flex-column justify-content-end">
+    <h1 div="mt-3">
+      <strong>Name:</strong>
+      <%= @restaurant.name %>
+    </h1>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @restaurant.address %>
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      <%= @restaurant.category.capitalize %>
+    </p>
+  </div>
+</div>
+
+<div class="container bg-success p-3 mt-3">
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<ul class="container mt-5">
+  <% @restaurant.reviews.each_with_index do |review, index| %>
+    <% if index.even? %>
+    <div class="bg-info p-2">
+      <%= review.content %> - <%= review.rating %>
+      </div>
+    <% else %>
+      <div class="bg-white p-2"> <%= review.content %> - <%= review.rating %></div>
+    <% end %>
+    <%# <%= link_to 'Delete', restaurant_reviews_path(review), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</ul>

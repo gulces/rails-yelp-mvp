@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # post 'restaurants', to: 'restaurants#create'
   # get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
   # get 'restaurants/:id'
+  root to: 'restaurants#index'
   resources :restaurants do
     resources :reviews, only: %i[new create]
   end

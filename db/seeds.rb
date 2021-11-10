@@ -15,3 +15,11 @@
   )
   puts 'Generated a restaurant...'
 end
+
+# 20.times do
+#   Review.create!(
+#     content: Faker::TvShows::BojackHorseman.quote,
+#     rating: rand(0..5),
+#     restaurant:
+#   )
+# end
